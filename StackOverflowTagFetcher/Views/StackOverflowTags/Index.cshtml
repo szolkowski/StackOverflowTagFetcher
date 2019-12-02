@@ -1,0 +1,27 @@
+﻿@model StackOverflowTagFetcher.Models.MostPopularTagPageViewModel
+
+@{
+    ViewBag.Title = "Most popular tags on stack overflow";
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Count</th>
+            <th scope="col">TagPopularityInFetchedData in %</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (var i = 0; i < Model.Tags.Count; i++)
+        {
+            <tr>
+                <th scope="row">@(i + 1)</th>
+                <td>@Model.Tags[i].Name</td>
+                <td>@Model.Tags[i].Count</td>
+                <td>@(Model.Tags[i].TagPopularityInFetchedData.ToString("P"))</td>
+            </tr>
+        }
+    </tbody>
+</table>
